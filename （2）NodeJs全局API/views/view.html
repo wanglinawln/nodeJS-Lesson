@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>毕业生信息</title>
+    <meta charset="UTF-8">
+    <style >
+        legend{
+            color: red;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+	<form id="testform" method="get" action="">
+        <h1>毕业生信息</h1>
+		<fieldset>
+			<legend>
+				学生信息
+			</legend>
+            姓&nbsp;&nbsp;名&nbsp;<input type="text" name="name" autofocus="autofocus" required="required" placeholder="请输入姓名"/>
+            <span>*</span>
+            <br/>
+            学&nbsp;&nbsp;号&nbsp;<input type="number" name="num" required="required" placeholder="请输入学号"/>
+            <span>*</span>
+            <br/>
+            手&nbsp;&nbsp;机&nbsp;<input type="tel" name="tele" required="required" placeholder="请输入手机号"/>
+            <span>*</span>
+            <br/>
+            邮&nbsp;&nbsp;箱&nbsp;<input type="email" name="email" required="required" placeholder="请输入邮箱地址"/>
+            <span>*</span>
+        </fieldset>
+        <br/>
+        <fieldset>
+            <legend>
+                录取情况
+            </legend>
+            录取学校&nbsp;<input type="search" name="school" required="required"/>
+            <br/>
+            入学成绩&nbsp;<input type="number" name="grade" required="required"/>
+            <br/>
+            入学时间&nbsp;<input type="date" name="time" required="required"/>
+        </fieldset>
+        <br/>
+        <input type="submit" value="提交"/>
+	</form>
+</body>
+</html>
