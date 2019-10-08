@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .gridtable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        .gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+        .gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table width="500px" align="center" class="gridtable">
+        <th>电影id</th>
+        <th>电影名称</th>
+        <th>电影评分</th>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $.get("http://localhost:8081/getlist",function(data){
+        var list = JSON.parse(data);
+        for(var i = 0; i < list.length; i++) {
+            var trNode = "<tr><td>"+list[i].movieId+"</td><td>"+list[i].movieName+"</td><td>"+list[i].movieRange+"</td></tr>";
+            $("table").append(trNode);
+        }
+    })
+</script>
+</html>
