@@ -14,7 +14,20 @@ http.createServer(function(req,res){
         res.end();
     }
     else if(pathName=="/getlist"){
-        https.get("https://maoyan.com/films",function(resObj){
+        var option={
+            hostname: 'maoyan.com',
+            path: '/films',
+            headers: {
+              'Accept':'*/*',
+              'Accept-Encoding':'utf-8',
+              'Accept-Language':'zh-CN,zh;q=0.8',
+              'Connection':'keep-alive',
+              'Host':'maoyan.com',
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'
+            }
+        };
+        
+        https.get(option,function(resObj){
             var result="";
             resObj.on("data",function(chunk){
                 result+=chunk;
@@ -33,6 +46,7 @@ http.createServer(function(req,res){
                     arr.push(movie);
                 })
                 var arr1=JSON.stringify(arr);
+    
                 // res.writeHead(200,{"Content-Type":"text/plain"});
                 res.write(arr1);
                 res.end();
